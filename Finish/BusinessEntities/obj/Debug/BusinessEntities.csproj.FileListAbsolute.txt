@@ -1,0 +1,10 @@
+D:\Day1\BusinessEntities\bin\Debug\BusinessEntities.dll
+D:\Day1\BusinessEntities\bin\Debug\BusinessEntities.pdb
+D:\Day1\BusinessEntities\obj\Debug\BusinessEntities.csprojResolveAssemblyReference.cache
+D:\Day1\BusinessEntities\obj\Debug\BusinessEntities.dll
+D:\Day1\BusinessEntities\obj\Debug\BusinessEntities.pdb
+D:\Day1\BusinessEntities\bin\Debug\BusinessEntities.dll.config
+D:\Day1\BusinessEntities\bin\Debug\EntityFramework.dll
+D:\Day1\BusinessEntities\bin\Debug\EntityFramework.SqlServer.dll
+D:\Day1\BusinessEntities\bin\Debug\EntityFramework.xml
+D:\Day1\BusinessEntities\bin\Debug\EntityFramework.SqlServer.xml

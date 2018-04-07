@@ -1,0 +1,5 @@
+D:\Day1\ViewModel\obj\Debug\ViewModel.csprojResolveAssemblyReference.cache
+D:\Day1\ViewModel\bin\Debug\ViewModel.dll
+D:\Day1\ViewModel\bin\Debug\ViewModel.pdb
+D:\Day1\ViewModel\obj\Debug\ViewModel.dll
+D:\Day1\ViewModel\obj\Debug\ViewModel.pdb

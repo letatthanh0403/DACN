@@ -1,0 +1,12 @@
+D:\Day1\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\Day1\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+D:\Day1\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Day1\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Day1\DataAccessLayer\bin\Debug\BusinessEntities.dll
+D:\Day1\DataAccessLayer\bin\Debug\EntityFramework.dll
+D:\Day1\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Day1\DataAccessLayer\bin\Debug\BusinessEntities.pdb
+D:\Day1\DataAccessLayer\bin\Debug\EntityFramework.xml
+D:\Day1\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Day1\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Day1\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

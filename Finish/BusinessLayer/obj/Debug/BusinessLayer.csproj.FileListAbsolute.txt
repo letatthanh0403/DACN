@@ -1,0 +1,14 @@
+D:\Day1\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Day1\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+D:\Day1\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\Day1\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\Day1\BusinessLayer\bin\Debug\BusinessEntities.dll
+D:\Day1\BusinessLayer\bin\Debug\DataAccessLayer.dll
+D:\Day1\BusinessLayer\bin\Debug\EntityFramework.dll
+D:\Day1\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Day1\BusinessLayer\bin\Debug\BusinessEntities.pdb
+D:\Day1\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Day1\BusinessLayer\bin\Debug\EntityFramework.xml
+D:\Day1\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Day1\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\Day1\BusinessLayer\obj\Debug\BusinessLayer.pdb
