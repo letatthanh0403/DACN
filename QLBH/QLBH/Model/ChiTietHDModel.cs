@@ -6,38 +6,18 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using QLBH.Object;
+
 namespace QLBH.Model
 {
-    class NhanVienModel
+    class ChiTietHDModel
     {
         ConnectToSQL con = new ConnectToSQL();
         SqlCommand cmd = new SqlCommand();
 
-        public DataTable GetData()
+        public DataTable GetData(string ma)
         {
             DataTable dt = new DataTable();
-            cmd.CommandText = "select * from NhanVien";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = con.Connection;
-            try
-            {
-                con.OpenConn();
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                sda.Fill(dt);
-          
-            }
-            catch (Exception ex)
-            {
-                string mex = ex.Message;
-                cmd.Dispose();
-                con.CloseConn();
-            }
-            return dt;
-        }
-        public DataTable GetData(string dieukien)
-        {
-            DataTable dt = new DataTable();
-            cmd.CommandText = "select * from NhanVien " + dieukien;
+            cmd.CommandText = @"select ct.MaHD, hh.TenMH HangHoa, ct.SoLuong, hh.DonGia, ct.ThanhTien from ChiTietHoaDon ct, MatHang hh where ct.MaMH = hh.MaMH and MaHD = '" + ma + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
@@ -54,16 +34,20 @@ namespace QLBH.Model
             }
             return dt;
         }
-        public bool AddData(Nhanvienobj nvObj)
+
+        public bool AddData(DataTable dt)
         {
-            cmd.CommandText = "Insert into NhanVien values ('" + nvObj.Ma + "',N'" + nvObj.Tennv + "','" + nvObj.Email + "',CONVERT(DATE,'" + nvObj.NgaySinh + "',103),'" + nvObj.Gioitinh + "','" + nvObj.Cmnd + "','" + nvObj.Matkhau + "','" + nvObj.Maqh + "')";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = con.Connection;
+
             try
             {
-                con.OpenConn();
-                cmd.ExecuteNonQuery();
-                con.CloseConn();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cmd.CommandText = "insert into ChiTietHoaDon values ('" + dt.Rows[i][0].ToString() + "','" + dt.Rows[i][1].ToString() + "'," + dt.Rows[i][2].ToString() + "," + dt.Rows[i][3].ToString() + ")";
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con.Connection;
+                    con.OpenConn();
+                    cmd.ExecuteNonQuery();
+                }
                 return true;
             }
             catch (Exception ex)
@@ -74,16 +58,15 @@ namespace QLBH.Model
             }
             return false;
         }
-        public bool UpdData(Nhanvienobj nvObj)
+        public bool AddData(ChiTietHDobj hdObj)
         {
-            cmd.CommandText = "Update NhanVien set TenNV =  N'" + nvObj.Tennv + "', Email = N'" + nvObj.Email + "', NgaySinh = CONVERT(DATE,'" + nvObj.NgaySinh + "',103), GioiTinh = N'" + nvObj.Gioitinh + "', CMND = " + nvObj.Cmnd + ", MatKhau = '" + nvObj.Matkhau + "', MaQH = '" + nvObj.Maqh + "' Where MaNV = '" + nvObj.Ma + "'";
+            cmd.CommandText = "insert into ChiTietHoaDon(MaHD,MaMH,SoLuong) values ('" + hdObj.MaHoaDon + "','" + hdObj.MaHangHoa + "','" + hdObj.SoLuong + "')";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try
             {
                 con.OpenConn();
                 cmd.ExecuteNonQuery();
-                con.CloseConn();
                 return true;
             }
             catch (Exception ex)
@@ -94,9 +77,10 @@ namespace QLBH.Model
             }
             return false;
         }
+
         public bool DelData(string ma)
         {
-            cmd.CommandText = "Delete NhanVien Where MaNV = '" + ma + "'";
+            cmd.CommandText = "Delete ChiTietHoaDon Where MaHD = '" + ma + "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try

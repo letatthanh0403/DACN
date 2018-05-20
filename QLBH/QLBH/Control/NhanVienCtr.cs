@@ -16,6 +16,10 @@ namespace QLBH.Control
         {
             return nvMod.GetData();
         }
+        public DataTable GetData(string dieukien)
+        {
+            return nvMod.GetData(dieukien);
+        }
         public bool AddData(Nhanvienobj nvObj)
         {
             return nvMod.AddData(nvObj);

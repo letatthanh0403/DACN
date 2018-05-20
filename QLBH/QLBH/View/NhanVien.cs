@@ -12,7 +12,7 @@ using QLBH.Model;
 using QLBH.Object;
 namespace QLBH.View
 {
-    public partial class NhanVien : Form
+    public partial class NhanVien : UserControl
     {
         NhanVienCtr nvCtr = new NhanVienCtr();
         private int flagLuu = 0;

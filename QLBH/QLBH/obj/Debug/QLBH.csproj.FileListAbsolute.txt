@@ -3,8 +3,11 @@ D:\QLBH\QLBH\bin\Debug\QLBH.exe
 D:\QLBH\QLBH\bin\Debug\QLBH.pdb
 D:\QLBH\QLBH\obj\Debug\QLBH.csprojResolveAssemblyReference.cache
 D:\QLBH\QLBH\obj\Debug\QLBH.Properties.Resources.resources
-D:\QLBH\QLBH\obj\Debug\QLBH.Form1.resources
 D:\QLBH\QLBH\obj\Debug\QLBH.View.NhanVien.resources
 D:\QLBH\QLBH\obj\Debug\QLBH.csproj.GenerateResource.Cache
 D:\QLBH\QLBH\obj\Debug\QLBH.exe
 D:\QLBH\QLBH\obj\Debug\QLBH.pdb
+D:\QLBH\QLBH\obj\Debug\QLBH.View.KhachHang.resources
+D:\QLBH\QLBH\obj\Debug\QLBH.View.HoaDon.resources
+D:\QLBH\QLBH\obj\Debug\QLBH.View.TrangChu.resources
+D:\QLBH\QLBH\obj\Debug\QLBH.View.FormDangNhap.resources
