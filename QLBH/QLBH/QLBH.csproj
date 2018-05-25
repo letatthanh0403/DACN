@@ -54,7 +54,7 @@
     <Compile Include="Model\ChiTietHDModel.cs" />
     <Compile Include="Model\ConnectToSQL.cs" />
     <Compile Include="Model\HangHoaModel.cs" />
-    <Compile Include="Model\HonDonModel.cs" />
+    <Compile Include="Model\HoaDonModel.cs" />
     <Compile Include="Model\KhachHangModel.cs" />
     <Compile Include="Model\NhanVienModel.cs" />
     <Compile Include="Object\ChiTietHDobj.cs" />
@@ -89,6 +89,12 @@
     <Compile Include="View\NhanVien.Designer.cs">
       <DependentUpon>NhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\PhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PhieuNhap.Designer.cs">
+      <DependentUpon>PhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PhieuNhap.resx">
+      <DependentUpon>PhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>

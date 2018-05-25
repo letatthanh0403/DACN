@@ -11,3 +11,4 @@ D:\QLBH\QLBH\obj\Debug\QLBH.View.KhachHang.resources
 D:\QLBH\QLBH\obj\Debug\QLBH.View.HoaDon.resources
 D:\QLBH\QLBH\obj\Debug\QLBH.View.TrangChu.resources
 D:\QLBH\QLBH\obj\Debug\QLBH.View.FormDangNhap.resources
+D:\QLBH\QLBH\obj\Debug\QLBH.View.PhieuNhap.resources

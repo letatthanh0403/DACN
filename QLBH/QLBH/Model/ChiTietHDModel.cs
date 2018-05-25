@@ -34,6 +34,26 @@ namespace QLBH.Model
             }
             return dt;
         }
+        public DataTable Getdata(string dieukien)
+        {
+            DataTable dt = new DataTable();
+            cmd.CommandText = "select * from ChiTietHoaDon " + dieukien;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return dt;
+        }
 
         public bool AddData(DataTable dt)
         {
@@ -78,9 +98,9 @@ namespace QLBH.Model
             return false;
         }
 
-        public bool DelData(string ma)
+        public bool DelData(string ma,string mah)
         {
-            cmd.CommandText = "Delete ChiTietHoaDon Where MaHD = '" + ma + "'";
+            cmd.CommandText = "Delete ChiTietHoaDon Where MaHD = '" + ma + "' and MaMH = '" +mah+ "'";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con.Connection;
             try

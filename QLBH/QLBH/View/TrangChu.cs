@@ -84,5 +84,20 @@ namespace QLBH.View
         {
             ThemTabPages(View.KhachHang.formkh, 4, "Quản lý khách hàng");
         }
+
+        private void TrangChu_Load(object sender, EventArgs e)
+        {
+            chaotxt.Text = "Xin chào, " + bientoancuc.tennv;
+            if(bientoancuc.maqh=="QH001")
+            {
+                quảnLýNhânViênToolStripMenuItem.Enabled = false;
+            }
+            else { 
+                if(bientoancuc.maqh=="QH002")
+                {
+
+                }
+             }
+        }
     }
 }

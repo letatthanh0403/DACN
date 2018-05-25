@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtgvDSHH = new System.Windows.Forms.DataGridView();
             this.cmbHH = new System.Windows.Forms.ComboBox();
@@ -69,6 +70,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.cmbHH);
             this.groupBox3.Controls.Add(this.label5);
@@ -87,6 +89,16 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chi tiết hóa đơn";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(219, 101);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "(VNĐ)";
             // 
             // groupBox4
             // 
@@ -121,6 +133,7 @@
             this.cmbHH.Size = new System.Drawing.Size(309, 21);
             this.cmbHH.TabIndex = 2;
             this.cmbHH.SelectedIndexChanged += new System.EventHandler(this.cmbHH_SelectedIndexChanged);
+            this.cmbHH.TextChanged += new System.EventHandler(this.cmbHH_TextChanged);
             // 
             // label5
             // 
@@ -142,6 +155,7 @@
             this.btnBot.TabIndex = 2;
             this.btnBot.Text = "Bớt";
             this.btnBot.UseVisualStyleBackColor = true;
+            this.btnBot.Click += new System.EventHandler(this.btnBot_Click);
             // 
             // btnThem
             // 
@@ -259,6 +273,7 @@
             this.btnDel.TabIndex = 9;
             this.btnDel.Text = "Xóa hóa đơn";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnAdd
             // 
@@ -449,5 +464,6 @@
         private System.Windows.Forms.TextBox txtNgayLap;
         private System.Windows.Forms.TextBox txtMa;
         private System.Windows.Forms.TextBox txtTen;
+        private System.Windows.Forms.Label label10;
     }
 }

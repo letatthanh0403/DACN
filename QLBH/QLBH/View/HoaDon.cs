@@ -51,6 +51,19 @@ namespace QLBH.View
             txtTen.DataBindings.Add("Text", dtgvDSHD.DataSource, "TenNV");
             cmbKhachHang.DataBindings.Clear();
             cmbKhachHang.DataBindings.Add("Text", dtgvDSHD.DataSource, "TenKH");
+          
+
+        }
+     private void bing()
+        {
+            cmbHH.DataBindings.Clear();
+            cmbHH.DataBindings.Add("Text", dtgvDSHH.DataSource, "HangHoa");
+            txtSL.DataBindings.Clear();
+            txtSL.DataBindings.Add("Text", dtgvDSHH.DataSource, "SoLuong");
+            txtDonGia.DataBindings.Clear();
+            txtDonGia.DataBindings.Add("Text", dtgvDSHH.DataSource, "DonGia");
+            lbThanhTien.DataBindings.Clear();
+            lbThanhTien.DataBindings.Add("Text", dtgvDSHH.DataSource, "ThanhTien");
         }
         private void LoadcmbKhachHang()
         {
@@ -103,21 +116,22 @@ namespace QLBH.View
             dtgvDSHD.DataSource = dt;
             bingding();
             txtNgayLap.Enabled = false;
-            DataTable dt1 = new System.Data.DataTable();
-            dt1 = ctCtr.GetData(txtMa.Text.Trim());
-            dtgvDSHH.DataSource = dt1;
+            LoadcmbHH();
+            LoadcmbKhachHang();
+          
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Dis_Enl(true);
-            clearData();
-            LoadcmbHH();
-            LoadcmbKhachHang();
+            clearData();           
+            txtSL.Text="0";
+            lbThanhTien.Text = "0";
+            txtDonGia.Text = "0";
             txtTen.Enabled = false;
             txtTen.Text = bientoancuc.tennv;
             txtTen.Focus();
-           
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -138,39 +152,65 @@ namespace QLBH.View
                 return true;
             return false;
         }
+        private bool  kiemtratrung(string mahh, string mahd)
+        {
+            DataTable dt = new DataTable();
+            dt = ctCtr.Getdata("Where MaMH = '" + mahh + "' and MaHD= " + mahd);
+            if (dt.Rows.Count > 0)
+                return true;
+            return false;
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
            
             ChiTietHDobj hdObj = new ChiTietHDobj();
             addData2(hdObj);
-            if (kiemtraSL(cmbHH.SelectedValue.ToString(), int.Parse(txtSL.Text.Trim())))
+            if (kiemtratrung(cmbHH.SelectedValue.ToString(), txtMa.Text.Trim()))
             {
-                if (ctCtr.AddData(hdObj))
-
-                    MessageBox.Show("Thêm chi tiết hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("Thêm chi tiêt hóa đơn không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Trùng mặt hàng", "Lỗi");
+                txtSL.Focus();
             }
             else
             {
-                MessageBox.Show("Thiếu hàng", "Lỗi");
-                txtSL.Focus();
+                if (kiemtraSL(cmbHH.SelectedValue.ToString(), int.Parse(txtSL.Text.Trim())))
+                {
+                    if (ctCtr.AddData(hdObj))
+                    {
+                        MessageBox.Show("Thêm chi tiết hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                    }
+                    else
+                        MessageBox.Show("Thêm chi tiêt hóa đơn không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Thiếu hàng", "Lỗi");
+                    txtSL.Focus();
+                }
             }
-                    HoaDon_Load(sender, e);
+            load();
+            HoaDon_Load(sender, e);
         }
 
         private void nvcbb_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
+        private void load()
+        {
+            DataTable dt = new System.Data.DataTable();
+            dt = ctCtr.GetData(txtMa.Text.Trim());
+            dtgvDSHH.DataSource = dt;
+            bing();
+        }
         private void txtMa_TextChanged(object sender, EventArgs e)
         {
                 DataTable dt = new System.Data.DataTable();
                 dt = ctCtr.GetData(txtMa.Text.Trim());
                 dtgvDSHH.DataSource = dt;
+                bing();
 
-         
+
         }
 
         private void cmbHH_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,15 +221,51 @@ namespace QLBH.View
             {
                 double gia = double.Parse(dt.Rows[0][3].ToString());
                 txtDonGia.Text = (gia * 1).ToString();
-                lbThanhTien.Text = (double.Parse(txtDonGia.Text) * int.Parse(txtSL.Text)).ToString();
+                lbThanhTien.Text = (double.Parse(txtDonGia.Text.ToString())*int.Parse(txtSL.Text.ToString())).ToString();
                
             }
 
         }
 
+      
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dr = MessageBox.Show("Bạn chắc chắn muốn xóa hóa đơn này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                if (hdCtr.DelData(txtMa.Text.Trim()))
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Xóa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+            HoaDon_Load(sender, e);
+        }
+
+        private void btnBot_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn chắc chắn muốn xóa sản phẩm này khỏi hóa đơn ?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                if (ctCtr.DelData(txtMa.Text.Trim(),cmbHH.SelectedValue.ToString()))
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Xóa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            load();
+            HoaDon_Load(sender, e);
+        }
+
         private void txtSL_TextChanged(object sender, EventArgs e)
         {
-            lbThanhTien.Text = (double.Parse(txtDonGia.Text) * int.Parse(txtSL.Text)).ToString();
+          
+        }
+
+        private void cmbHH_TextChanged(object sender, EventArgs e)
+        {
+     
         }
     }
 }

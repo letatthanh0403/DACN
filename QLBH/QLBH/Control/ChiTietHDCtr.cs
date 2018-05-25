@@ -15,6 +15,10 @@ namespace QLBH.Control
         {
             return ctMod.GetData(ma);
         }
+        public DataTable Getdata(string dk)
+        {
+            return ctMod.Getdata(dk);
+        }
         public bool AddData(DataTable dt)
         {
             return ctMod.AddData(dt);
@@ -23,9 +27,9 @@ namespace QLBH.Control
         {
             return ctMod.AddData(hdObj);
         }
-        public bool DelData(string ma)
+        public bool DelData(string ma,string mamh)
         {
-            return ctMod.DelData(ma);
+            return ctMod.DelData(ma,mamh);
         }
     }
 }
