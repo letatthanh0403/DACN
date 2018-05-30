@@ -15,9 +15,17 @@ namespace QLBH.Control
         {
             return hhMod.GetData();
         }
+        public DataTable NhaSanXuat()
+        {
+            return hhMod.NhaSX();
+        }
         public DataTable GetData(string dieukien)
         {
             return hhMod.GetData(dieukien);
+        }
+        public DataTable GetData2(string dieukien)
+        {
+            return hhMod.GetData2(dieukien);
         }
     }
 }

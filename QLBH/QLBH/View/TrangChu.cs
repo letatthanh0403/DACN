@@ -99,5 +99,20 @@ namespace QLBH.View
                 }
              }
         }
+
+        private void hóaĐơnNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThemTabPages(View.PhieuNhap.formpn, 4, "Phiếu Nhập");
+        }
+
+        private void tìmKiếmTheoTênNCCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThemTabPages(View.TimKiemTheoTenNhaCC.ncc, 4, "Tìm Kiếm");
+        }
+
+        private void tìmKiếmTheoTênMặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThemTabPages(View.TimKiemTheoTenMH.mh, 4, "Tìm Kiếm");
+        }
     }
 }
